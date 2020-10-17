@@ -1,0 +1,16 @@
+.error {
+  display: inline-block;
+  text-align: center;
+}
+
+.error img {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.error span {
+  display: block;
+  color: tomato;
+}
