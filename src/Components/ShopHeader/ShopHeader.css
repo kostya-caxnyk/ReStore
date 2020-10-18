@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid silver;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  color: black;
+  transition: color .2s linear;
+}
+
+.header a {
+  color: rgb(32, 21, 21);
+  transition: color .2s linear;
+}
+
+.header a:hover {
+  text-decoration: none;
+  color: rgb(61, 8, 131);
+}
+
+.header a:hover h1 {
+  color: rgb(61, 8, 131);
+}
+
+.header i {
+  font-size: 25px;
+  color: cadetblue;
+  margin-right: 10px;
+}
+

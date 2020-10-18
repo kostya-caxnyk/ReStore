@@ -1,17 +1,21 @@
 import React from 'react';
-import withBookstoreService from '../Hoc/withBookstoreService';
+import { Route, Switch } from 'react-router-dom';
 
-const App = ({ bookstoreService }) => {
-  const arr = bookstoreService.getBooks().map(({ id, title, author }) => {
-    return (
-      <div key={id}>
-        <h2>{title}</h2>
-        <strong>Author: {author}</strong>
-      </div>
-    );
-  });
-  
-  return <div>{arr}</div>;
+import './App.css';
+
+import { HomePage, CartPage } from '../Pages';
+import ShopHeader from '../ShopHeader';
+
+const App = () => {
+  return (
+    <main role="main" className="container">
+      <ShopHeader productsCount={5} priceValue={200} />
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/cart" component={CartPage} />
+      </Switch>
+    </main>
+  );
 };
 
-export default withBookstoreService()(App);
+export default App;

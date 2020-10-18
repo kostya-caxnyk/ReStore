@@ -1,0 +1,32 @@
+.book-list-item {
+  margin: 15px 40px;
+  display: flex;
+}
+
+.book-list-item img {
+  margin-right: 40px;
+  max-width: 150px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 15px;
+}
+
+.content button {
+  margin-top: auto;
+  width: 120px;
+}
+
+.title {
+  color: rgb(22, 125, 129);
+}
+
+.price {
+  font-weight: bold;
+  color: rgb(73, 70, 70);
+  font-size: 30px;
+}
