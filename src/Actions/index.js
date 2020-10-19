@@ -13,4 +13,24 @@ const fetchBooks = (bookstoreService, dispatch) => () => {
     .catch((err) => dispatch(booksError(err)));
 };
 
-export { fetchBooks };
+const bookAddedToCart = (bookId) => ({
+  type: 'BOOK_ADDED_TO_CART',
+  payload: bookId,
+});
+
+const bookDeletedFromCart = (bookId) => ({
+  type: 'BOOK_DELETE_FROM_CART',
+  payload: bookId,
+});
+
+const bookDecreasedCount = (bookId) => ({
+  type: 'BOOK_DECREASE_COUNT',
+  payload: bookId,
+});
+
+const bookIncreasedCount = (bookId) => ({
+  type: 'BOOK_INCREASE_COUNT',
+  payload: bookId,
+});
+
+export { fetchBooks, bookAddedToCart, bookDeletedFromCart, bookDecreasedCount, bookIncreasedCount };
