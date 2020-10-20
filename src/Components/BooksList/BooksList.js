@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BookListItem from '../BookListItem';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import './BooksList.css';
 
@@ -16,7 +17,7 @@ const BooksList = ({ books, onAddedToCart }) => {
       {books.map((book) => {
         return (
           <li key={book.id}>
-            <BookListItem book={book} onAddedToCart={() => onAddedToCart(book.id)}/>
+            <BookListItem book={book} onAddedToCart={() => onAddedToCart(book.id)} />
           </li>
         );
       })}
@@ -44,7 +45,7 @@ class BooksListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ books, loading, error }) => {
+const mapStateToProps = ({ bookList: { books, loading, error } }) => {
   return {
     books,
     loading,
@@ -53,10 +54,13 @@ const mapStateToProps = ({ books, loading, error }) => {
 };
 
 const mapDispatchToProps = (dispatch, { bookstoreService }) => {
-  return {
-    fetchBooks: fetchBooks(bookstoreService, dispatch),
-    onAddedToCart: (id) => dispatch(bookAddedToCart(id))
-  };
+  return bindActionCreators(
+    {
+      fetchBooks: fetchBooks(bookstoreService),
+      onAddedToCart: bookAddedToCart,
+    },
+    dispatch,
+  );
 };
 
 export default compose(
