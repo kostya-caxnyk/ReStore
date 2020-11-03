@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './ShopHeader.css';
 
 const ShopHeader = () => {
-  const orderTotal = React.useSelector((state) => state.shoppingCart.orderTotal);
-  const productsCount = React.useSelector((state) => state.shoppingCart.cartItems);
+  const orderTotal = useSelector((state) => state.shoppingCart.orderTotal);
+  const productsCount = useSelector((state) => state.shoppingCart.cartItems.length);
 
   return (
     <header className="header">
