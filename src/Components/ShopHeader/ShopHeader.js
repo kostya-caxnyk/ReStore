@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 
 import './ShopHeader.css';
 
-const ShopHeader = ({ productsCount, priceValue }) => {
+const ShopHeader = () => {
+  const orderTotal = React.useSelector((state) => state.shoppingCart.orderTotal);
+  const productsCount = React.useSelector((state) => state.shoppingCart.cartItems);
+
   return (
     <header className="header">
       <Link to="/">
@@ -12,7 +15,7 @@ const ShopHeader = ({ productsCount, priceValue }) => {
       <Link to="/cart">
         <i className="fas fa-shopping-cart"></i>
         <span>
-          {productsCount} item{productsCount === 1 ? '' : 's'} (${priceValue})
+          {productsCount} item{productsCount === 1 ? '' : 's'} (${orderTotal})
         </span>
       </Link>
     </header>
